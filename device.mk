@@ -29,7 +29,7 @@ $(call inherit-product, device/xiaomi/sdm439-common/msm8996.mk)
 
 # Device init scripts
 PRODUCT_PACKAGES += \
-    init.target.rc
+    init.target.rc \
     fstab.qcom
 
 # Keylayout
