@@ -33,9 +33,9 @@ PRODUCT_MODEL := Redmi 8A
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 TARGET_VENDOR := xiaomi
 TARGET_VENDOR_PRODUCT_NAME := olivelite
-PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="olivelite-user 9 PKQ1.190319.001 V11.0.1.0.PCPINXM release-keys"
+PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="olivelite-user 9 PKQ1.190319.001 V11.0.1.0.PCPRUXM release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := Xiaomi/olivelite/olivelite:9/PKQ1.190319.001/V11.0.1.0.PCPINXM:user/release-keys
+BUILD_FINGERPRINT := Xiaomi/olivelite_ru/olivelite:9/PKQ1.190319.001/V11.0.1.0.PCPRUXM:user/release-keys
 
 TARGET_VENDOR := Xiaomi
