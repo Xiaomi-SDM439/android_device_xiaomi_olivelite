@@ -22,20 +22,22 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 # Inherit from olivelite device
-$(call inherit-product, $(LOCAL_PATH)/device.mk)
+$(call inherit-product, device/xiaomi/olivelite/device.mk)
 
-PRODUCT_BRAND := xiaomi
-PRODUCT_DEVICE := olivelite
-PRODUCT_MANUFACTURER := xiaomi
+
+# Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_olivelite
+PRODUCT_DEVICE := olivelite
+PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Redmi 8A
+PRODUCT_MANUFACTURER := Xiaomi
 
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
-TARGET_VENDOR := xiaomi
-TARGET_VENDOR_PRODUCT_NAME := olivelite
-PRODUCT_BUILD_PROP_OVERRIDES += PRIVATE_BUILD_DESC="olivelite-user 9 PKQ1.190319.001 V11.0.1.0.PCPRUXM release-keys"
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    TARGET_DEVICE="olivelite" \
+    PRODUCT_NAME="olivelite" \
+    PRIVATE_BUILD_DESC="olivelite-user 9 PKQ1.190319.001 V11.0.1.0.PCPRUXM release-keys"
 
 # Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := Xiaomi/olivelite_ru/olivelite:9/PKQ1.190319.001/V11.0.1.0.PCPRUXM:user/release-keys
-
-TARGET_VENDOR := Xiaomi
+BUILD_FINGERPRINT := "Xiaomi/olivelite_ru/olivelite:9/PKQ1.190319.001/V11.0.1.0.PCPRUXM:user/release-keys"
