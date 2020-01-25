@@ -41,6 +41,7 @@ TARGET_KERNEL_HEADER_ARCH := arm
 TARGET_KERNEL_CROSS_COMPILE_PREFIX := arm-linux-androidkernel-
 BOARD_KERNEL_CMDLINE := console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 androidboot.hardware=qcom user_debug=30 msm_rtb.filter=0x237 ehci-hcd.park=3 androidboot.bootdevice=7824900.sdhci lpm_levels.sleep_disabled=1 earlycon=msm_hsl_uart,0x78B0000 vmalloc=300M firmware_class.path=/vendor/firmware_mnt/image androidboot.usbconfigfs=true loop.max_part=7
 TARGET_KERNEL_CONFIG := olivelite-perf_defconfig
+BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 
 # Partition
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
