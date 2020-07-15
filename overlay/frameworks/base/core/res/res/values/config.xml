@@ -22,6 +22,145 @@
 
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
+    <!-- Whether the display blanks itself when transition from a doze to a non-doze state -->
+     <bool name="config_displayBlanksAfterDoze">true</bool>
+
+    <!-- Is the notification LED intrusive? Used to decide if there should be a disable option -->
+     <bool name="config_intrusiveNotificationLed">false</bool>
+
+    <!-- Height of the status bar -->
+     <dimen name="status_bar_height_portrait">27.5dip</dimen>
+
+    <!-- The maximum range of gamma adjustment possible using the screen
+         auto-brightness adjustment setting. -->
+     <fraction name="config_autoBrightnessAdjustmentMaxGamma">100.0%</fraction>
+
+    <!-- Stability requirements in milliseconds for accepting a new brightness level.  This is used
+         for debouncing the light sensor.  Different constants are used to debounce the light sensor
+         when adapting to brighter or darker environments.  This parameter controls how quickly
+         brightness changes occur in response to an observed change in light level that exceeds the
+         hysteresis threshold. -->
+     <integer name="config_autoBrightnessBrighteningLightDebounce">1000</integer>
+     <integer name="config_autoBrightnessDarkeningLightDebounce">1000</integer>
+
+    <!-- Screen brightness used to dim the screen when the user activity
+         timeout expires.  May be less than the minimum allowed brightness setting
+         that can be set by the user. -->
+     <integer name="config_screenBrightnessDim">13</integer>
+
+    <!-- The bounding path of the cutout region of the main built-in display.
+         Must either be empty if there is no cutout region, or a string that is parsable by
+         {@link android.util.PathParser}.
+    
+         The path is assumed to be specified in display coordinates with pixel units and in
+         the display's native orientation, with the origin of the coordinate system at the
+         center top of the display.
+    
+         To facilitate writing device-independent emulation overlays, the marker `@dp` can be
+         appended after the path string to interpret coordinates in dp instead of px units.
+         Note that a physical cutout should be configured in pixels for the best results.
+    -->
+     <string name="config_mainBuiltInDisplayCutout">M-59,13.521603 C-51.3411734,20.2116468 -45.8262261,25.5003131 -42.4551581,29.3876018 C-37.4060696,35.2110207 -32.5523328,41.2298059 -26.3762157,45.6443331 C-22.5105074,48.4020038 -18.1301226,50.536005 -13.5506295,51.9524108 C-9.15897443,53.3087038 -4.57948127,55 1.18885336e-05,55 C4.57574829,55 9.14772792,53.3087038 13.539383,51.9524108 C18.1263897,50.536005 22.5067744,48.4020038 26.3649692,45.6443331 C32.5523566,41.2298059 37.4060934,35.2110207 42.4551819,29.3876018 C45.8237453,25.5003131 51.3386847,20.2116468 59,13.521603 L59,0 L-59,0 L-59,13.521603 Z</string>
+
+    <!-- Array of output values for LCD backlight corresponding to the LUX values
+         in the config_autoBrightnessLevels array.  This array should have size one greater
+         than the size of the config_autoBrightnessLevels array.
+         This must be overridden in platform specific overlays -->
+    <integer-array name="config_autoBrightnessLcdBacklightValues">
+        <item>17</item>
+        <item>21</item>
+        <item>40</item>
+        <item>77</item>
+        <item>111</item>
+        <item>144</item>
+        <item>175</item>
+        <item>245</item>
+        <item>302</item>
+        <item>348</item>
+        <item>382</item>
+        <item>404</item>
+        <item>406</item>
+        <item>407</item>
+        <item>408</item>
+        <item>409</item>
+        <item>412</item>
+        <item>414</item>
+        <item>416</item>
+        <item>417</item>
+        <item>419</item>
+        <item>420</item>
+        <item>423</item>
+        <item>426</item>
+        <item>428</item>
+        <item>432</item>
+        <item>442</item>
+        <item>449</item>
+        <item>456</item>
+        <item>458</item>
+        <item>466</item>
+        <item>472</item>
+        <item>479</item>
+        <item>486</item>
+        <item>494</item>
+        <item>500</item>
+        <item>507</item>
+        <item>516</item>
+        <item>522</item>
+        <item>530</item>
+        <item>536</item>
+        <item>545</item>
+        <item>550</item>
+        <item>559</item>
+        <item>565</item>
+        <item>674</item>
+        <item>783</item>
+        <item>905</item>
+        <item>1028</item>
+        <item>1152</item>
+        <item>1284</item>
+        <item>1418</item>
+        <item>1600</item>
+        <item>1760</item>
+        <item>1900</item>
+        <item>2000</item>
+        <item>2047</item>
+        <item>2047</item>
+    </integer-array>
+
+    <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_dynamicHysteresisLuxLevels. The brightening threshold is calculated as
+         lux * (1.0f + CONSTRAINT_VALUE). When the current lux is higher than this threshold,
+         the screen brightness is recalculated. See the config_dynamicHysteresisLuxLevels
+         description for how the constraint value is chosen. -->
+    <integer-array name="config_dynamicHysteresisBrightLevels">
+        <item>2</item>
+        <item>5</item>
+        <item>10</item>
+        <item>30</item>
+        <item>100</item>
+        <item>400</item>
+        <item>600</item>
+        <item>1000</item>
+    </integer-array>
+
+    <!-- Array of hysteresis constraint values for darkening, represented as tenths of a
+         percent. The length of this array is assumed to be one greater than
+         config_dynamicHysteresisLuxLevels. The darkening threshold is calculated as
+         lux * (1.0f - CONSTRAINT_VALUE). When the current lux is lower than this threshold,
+         the screen brightness is recalculated. See the config_dynamicHysteresisLuxLevels
+         description for how the constraint value is chosen. -->
+    <integer-array name="config_dynamicHysteresisDarkLevels">
+        <item>800</item>
+        <item>800</item>
+        <item>500</item>
+        <item>500</item>
+        <item>500</item>
+        <item>500</item>
+        <item>500</item>
+        <item>500</item>
+    </integer-array>
+
     <!-- Vibrator pattern for feedback about a long screen/key press -->
     <integer-array name="config_longPressVibePattern">
         <item>0</item>

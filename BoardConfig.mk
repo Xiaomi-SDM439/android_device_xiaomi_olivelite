@@ -1,5 +1,5 @@
 #
-# Copyright (C) 2019 The LineageOS Project
+# Copyright (C) 2020 The LineageOS Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,10 +14,11 @@
 # limitations under the License.
 #
 
-# Inherit from common sdm439-common
+# inherit from common sdm439-common
 -include device/xiaomi/sdm439-common/BoardConfigCommon.mk
 
 DEVICE_PATH := device/xiaomi/olivelite
+BOARD_VENDOR := xiaomi
 
 # Architecture
 TARGET_ARCH := arm
@@ -32,8 +33,13 @@ TARGET_USES_64_BIT_BINDER := true
 # Assert
 TARGET_OTA_ASSERT_DEVICE := olivelite
 
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
+# Security patch level
+VENDOR_SECURITY_PATCH := 2020-05-01
+
+# HIDL
+DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
+DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE += $(DEVICE_PATH)/framework_compatibility_matrix.xml
 
 # Kernel
 TARGET_KERNEL_ARCH := arm
@@ -47,12 +53,16 @@ BOARD_KERNEL_IMAGE_NAME := zImage-dtb
 # Partition
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 4294967296
 BOARD_VENDORIMAGE_PARTITION_SIZE := 1073741824
+BOARD_BOOTIMAGE_PARTITION_SIZE := 67108864
+BOARD_CACHEIMAGE_PARTITION_SIZE := 402653184
+BOARD_DTBOIMG_PARTITION_SIZE := 8388608
+BOARD_METADATAIMAGE_PARTITION_SIZE := 65536
+BOARD_PERSISTIMAGE_PARTITION_SIZE := 33554432
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 1971322880
 
 # Recovery
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
 
-# Security patch level
-VENDOR_SECURITY_PATCH := 2019-10-01
-
-# Inherit from the proprietary version
+# inherit from the proprietary version
 -include vendor/xiaomi/olivelite/BoardConfigVendor.mk
