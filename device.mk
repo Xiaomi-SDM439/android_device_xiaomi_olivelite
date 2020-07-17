@@ -14,6 +14,15 @@
 # limitations under the License.
 #
 
+# Screen density
+PRODUCT_AAPT_CONFIG := normal
+PRODUCT_AAPT_PREF_CONFIG := xxhdpi
+
+# Boot animation
+TARGET_SCREEN_HEIGHT := 1520
+TARGET_SCREEN_WIDTH := 720
+
+
 # call the proprietary setup
 $(call inherit-product, vendor/xiaomi/olivelite/olivelite-vendor.mk)
 
