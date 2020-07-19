@@ -36,6 +36,9 @@ TARGET_OTA_ASSERT_DEVICE := olivelite
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-05-01
 
+# Props
+TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
+
 # HIDL
 DEVICE_MANIFEST_FILE += $(DEVICE_PATH)/manifest.xml
 DEVICE_MATRIX_FILE += $(DEVICE_PATH)/compatibility_matrix.xml
