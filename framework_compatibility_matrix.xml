@@ -33,12 +33,4 @@
             <instance>default</instance>
         </interface>
     </hal>
-    <hal format="hidl" optional="true">
-        <name>vendor.xiaomi.hardware.displayfeatureqservice</name>
-        <version>1.0</version>
-        <interface>
-            <name>IDisplayFeatureQservice</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
 </compatibility-matrix>
