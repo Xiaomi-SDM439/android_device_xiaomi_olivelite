@@ -40,12 +40,14 @@ on fs
     wait /dev/block/platform/soc/7824900.sdhci
     symlink /dev/block/platform/soc/7824900.sdhci /dev/block/bootdevice
     mount_all /vendor/etc/fstab.qcom
+    mkdir /mnt/vendor/persist 0771 root system
     chown root system /mnt/vendor/persist
     chmod 0771 /mnt/vendor/persist
+    swapon_all /vendor/etc/fstab.qcom
+    restorecon_recursive /mnt/vendor/persist
     mkdir /mnt/vendor/persist/data 0700 system system
     mkdir /mnt/vendor/persist/stability 0755 system system
     mkdir /mnt/vendor/persist/bms 0700 root system
-    restorecon_recursive /mnt/vendor/persist
 
     write /proc/sys/vm/swappiness 100
     #write /sys/kernel/boot_adsp/boot 1
