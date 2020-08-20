@@ -36,9 +36,6 @@ TARGET_OTA_ASSERT_DEVICE := olivelite
 # Security patch level
 VENDOR_SECURITY_PATCH := 2020-05-01
 
-# Props
-TARGET_SYSTEM_PROP += $(DEVICE_PATH)/system.prop
-
 # Kernel
 TARGET_KERNEL_ARCH := arm
 TARGET_KERNEL_HEADER_ARCH := arm
